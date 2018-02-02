@@ -1,0 +1,108 @@
+<DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="UTF-8">
+		<title>Train Schedule</title>
+
+		<link rel="stylesheet" href="assets/css/reset.css">
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+ 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="assets/css/style.css">
+
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+		<script type="text/javascript" src="assets/javascript/app.js"></script>
+ 	    <script type="text/javascript" src="assets/javascript/moment.js"></script>
+
+	</head>
+
+	<body>
+
+		<nav class="nav-extended center-align #ef9a9a red lighten-1">		
+   			<div class="nav-content container">
+   				   <h1><span class="nav-title center-align"><i class="large material-icons">train access_time</i>Train Schedule</span></h1>			 
+  			</div>
+ 		</nav>
+		
+		<br />
+
+		 <div class="container card #7986cb indigo lighten-2 z-depth-2">
+            <div class="card-content white-text">
+              <span class="card-title"><i class="small material-icons">train</i> Train Schedule </span>
+
+				<table class="black-text highlight bordered responsive-table">
+			        <thead class="#7986cb indigo lighten-2">
+				        <tr>
+				            <th><strong>Train Name</strong></th>
+				            <th><strong>Destination</strong></th>
+				            <th><strong>Frequency (min)</strong></th>
+				            <th><strong>Next Arrival</strong></th>
+				            <th><strong>Minutes Away</strong></th>
+				        </tr>
+			        </thead>
+
+			        <tbody>
+				    <!--    // user entries go here //     -->
+				       
+			        </tbody>
+		    	</table>
+  	    	</div>
+  		</div>
+
+  	    <div class="container card #7986cb indigo lighten-2 z-depth-2">
+  	    	<div class="card-content">
+
+  	    		<span class="card-title white-text"><i class="small material-icons">add_circle_outline</i>Add Train</span>
+  	    		
+  	    		<div class="row black-text">	
+      				<div class="input-field col s12">
+       			  	    <input id="name" type="text" class="validate">
+     			        <label class="black-text" for="train_name">Train Name</label>
+     			    </div>
+  	    		</div>
+
+  	    		<div class="row black-text">	
+      				<div class="input-field col s12">
+       			  	    <input id="destination" type="text" class="validate">
+     			        <label class="black-text" for="destination">Destination</label>
+     			    </div>
+  	    		</div>
+
+  	    		<div class="row black-text">	
+      				<div class="input-field col s12">
+       			  	    <input id="ftt" type="text" class="datepicker">
+     			        <label class="black-text" for="ftt">First Train Time</label>
+     			    </div>
+  	    		</div>
+
+  	    		<div class="row black-text">	
+      				<div class="input-field col s12">
+       			  	    <input id="frequency" type="text" class="validate">
+     			        <label class="black-text" for="requency">Frequency (min)</label>
+     			    </div>
+  	    		</div>
+
+  	    		<button class="btn waves-effect waves-light #ef9a9a red lighten-1" type="submit" id="submit" name="action">Submit
+  				  <i class="material-icons right">send</i>
+ 				</button>
+
+  	    	</div>
+  	    </div>
+
+  	    <footer class="page-footer footer-copyright #ef9a9a red lighten-1">
+				<div class="container">
+					<h3 class="center-align"><strong>Copyright &copy; Roxana Milea</strong></h3>			
+				</div>
+		</footer>
+			
+
+		<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+
+   		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>	
+	</body>
+</html>
