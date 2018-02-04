@@ -1,40 +1,40 @@
 /* label color */
    .input-field label {
-     color: black;
+     color: white;
    }
    /* label focus color */
    .input-field #name:focus + label[for=train_name] {
-     color: black;
+     color: white;
    }
    /* label underline focus color */
    .input-field #name:focus {
      color: black;
-     border-bottom: 1px solid black;
-     box-shadow: 0 1px 0 0 black;
+     border-bottom: 1px solid white;
+     box-shadow: 0 1px 0 0 white;
    }
 
    .input-field #destination:focus {
      color: black;
-     border-bottom: 1px solid black;
-     box-shadow: 0 1px 0 0 black;
+     border-bottom: 1px solid white;
+     box-shadow: 0 1px 0 0 white;
    }
 
    .input-field #ftt:focus {
      color: black;
-     border-bottom: 1px solid black;
-     box-shadow: 0 1px 0 0 black;
+     border-bottom: 1px solid white;
+     box-shadow: 0 1px 0 0 white;
    }
 
    .input-field #frequency:focus {
      color: black;
-     border-bottom: 1px solid black;
-     box-shadow: 0 1px 0 0 black;
+     border-bottom: 1px solid white;
+     box-shadow: 0 1px 0 0 white;
    }
 
    .input-field #name:focus {
      color: black;
-     border-bottom: 1px solid black;
-     box-shadow: 0 1px 0 0 black;
+     border-bottom: 1px solid white;
+     box-shadow: 0 1px 0 0 white;
    }
  /* valid color */
    .input-field input[type=text].valid {
