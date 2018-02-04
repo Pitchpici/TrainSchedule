@@ -33,6 +33,11 @@ $(document).ready(function() {
         var firstTimeTrain = $("#ftt").val().trim();
         var frequency = $("#frequency").val().trim();
 
+        if ((name=="")  || (destination=="") || (firstTimeTrain="") || (frequency=="")) {
+            alert("You must complete all fields before adding your train!");
+            return false;
+        }
+
         database.ref().push({
                 name: name,
                 destination: destination,
