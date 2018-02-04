@@ -51,6 +51,8 @@
      color: white;
    }
 
-   /*.nav-container{
-    background-image: url("../images/train.png") !important;
-   }*/
+    .parallax-container {
+      width: 100%;
+      height: 350px;
+    }
+       
