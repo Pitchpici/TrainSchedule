@@ -28,26 +28,41 @@ $(document).ready(function() {
 
         event.preventDefault();
 
-        var name = $("#name").val().trim();
-        var destination = $("#destination").val().trim();
-        var firstTimeTrain = $("#ftt").val().trim();
-        var frequency = $("#frequency").val().trim();
+        var trainName = $("#name").val().trim();
+        console.log("name " + trainName);
 
-        if ((name=="")  || (destination=="") || (firstTimeTrain="") || (frequency=="")) {
+        var trainDestination = $("#destination").val().trim();
+        console.log("destination " + trainDestination);
+
+        var firstTimeTrain = $("#firstTime").val();
+        console.log("FTT " + firstTimeTrain);
+
+        var frequency = $("#frequency").val().trim();
+        console.log("frequency " + frequency);
+
+        if ((trainName=="")  || (trainDestination=="") || (firstTimeTrain=="") || (frequency=="")) {
             alert("You must complete all fields before adding your train!");
             return false;
         }
 
-        database.ref().push({
-                name: name,
-                destination: destination,
-                ftt: firstTimeTrain,
-                fq: frequency
-        });
+        var data = {
+            firstTimeTrain: firstTimeTrain,
+            trainName: trainName,
+            destination: trainDestination,
+            fq: frequency
+        }
+
+        console.log("AAAAA " + data.trainName);
+        console.log("AAAAA " + data.firstTimeTrain);
+        console.log("AAAAA " + data.frequency);
+        console.log("AAAAA " + data.destination);
+
+
+        database.ref().push(data);
 
         $("#name").val("");
         $("#destination").val("");
-        $("#ftt").val("");
+        $("#firstTime").val("");
         $("#frequency").val("");
 
     });
@@ -55,20 +70,35 @@ $(document).ready(function() {
 
     database.ref().on("child_added", function(TrainInfo) {
       
-        var name = TrainInfo.val().name;
+        var trainName = TrainInfo.val().trainName;
+        console.log("name inside database:" + trainName);
+
         var destination = TrainInfo.val().destination;
-        var time = TrainInfo.val().ftt;
+        console.log("train destination inside database: " + destination);
+
+        var time = TrainInfo.val().firstTimeTrain;
+        console.log("time: " + time);
+
         var frequency = TrainInfo.val().fq;
+        console.log("frequency: " + frequency);
+
+        console.log(parseInt(frequency));
 
         var firstTimeConverted = moment(time, "hh:mm").subtract(1, "years");
+        console.log("firstTimeConverted" + firstTimeConverted);
 
         var currentTime = moment();
+        console.log("currentTime" + currentTime);
 
-        var diffTime = currentTime.diff(moment(firstTimeConverted), "minutes");
 
-        var tRemainder = diffTime % frequency;
+        var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+        console.log("time difference" + diffTime);
 
-        var minutesTillNext = frequency - tRemainder;
+
+        var tRemainder = diffTime % parseInt(frequency);
+
+        var minutesTillNext = parseInt(frequency) - tRemainder;
+        console.log("Minutes till ext" + minutesTillNext);
 
         var next = moment().add(minutesTillNext, "minutes");
 
@@ -76,7 +106,7 @@ $(document).ready(function() {
         console.log(displayTime);
 
 
-        $("tbody").append("<tr><td" + name + "</td><td>" + destination + "</td><td>" + time + "</td><td>" 
+        $("tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>"
             + frequency + "</td><td>" + displayTime + "</td><td>" + minutesTillNext + "</td></tr>");
 
 
